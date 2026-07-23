@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "Please cite the associated WiSED manuscript/software release and the original SOC-EIS dataset when relevant."
-title: "WiSED engineering-validation datasets and figure source data"
+title: "WiSED engineering-validation datasets"
 type: dataset
 authors:
   - name: "HUSTOROP"
