@@ -1,0 +1,112 @@
+{
+  "task_name": "sib_diffusion_raw_field",
+  "dataset_path": "code/data/dataset/sib_diffusion_raw_field_noise0.03.npz",
+  "summary_path": "code/outputs/sib_diffusion/noise_0.03__seed_0/sib_noise_0.03__seed_0_summary.json",
+  "official_discovered_equation": "u_t = 2.189*u_{x} / x + 0.8065*(u_{xx})",
+  "true_equation": "u_t = u_xx + 2*u_x/x",
+  "coefficient_hint": {
+    "coef_u_x_over_x": 2.189,
+    "coef_u_xx": 0.8065
+  },
+  "metrics": {
+    "true_rhs_vs_ut": {
+      "mae": 0.00018822137761210898,
+      "rmse": 0.0010480235216600623,
+      "r2": 0.9999965737061423,
+      "n": 284830
+    },
+    "discovered_rhs_vs_ut": {
+      "mae": 0.006796799800426962,
+      "rmse": 0.0183766943427496,
+      "r2": 0.9989465417432535,
+      "n": 284830
+    },
+    "discovered_rhs_vs_true_rhs": {
+      "mae": 0.006859061013350823,
+      "rmse": 0.018414899865534507,
+      "r2": 0.9989419298940516,
+      "n": 284830
+    }
+  },
+  "representative_surface_index": 10,
+  "representative_surface_meta": {
+    "phase": "discharge",
+    "delta": 0.25,
+    "initial_profile": "sin2"
+  },
+  "field_reconstruction_0_to_T": {
+    "discovered_vs_clean": {
+      "mae": 0.0026780677909517808,
+      "rmse": 0.00330014178693974,
+      "r2": 0.9999226841620081,
+      "n": 291200
+    },
+    "true_pde_vs_clean": {
+      "mae": 0.002461837951245803,
+      "rmse": 0.0030557502137303918,
+      "r2": 0.9999337113811413,
+      "n": 291200
+    },
+    "terminal_discovered_vs_clean": {
+      "mae": 0.0002543532988179949,
+      "rmse": 0.0003071423490606394,
+      "r2": 0.9999996209014945,
+      "n": 910
+    },
+    "terminal_true_pde_vs_clean": {
+      "mae": 6.234244067912719e-05,
+      "rmse": 9.573228324137656e-05,
+      "r2": 0.9999999631710359,
+      "n": 910
+    },
+    "initial_condition_source": "denoised noisy observed field at tau=0",
+    "boundary_condition_source": "known SIB boundary flux from dataset metadata",
+    "time_window": "0 <= tau <= T",
+    "state_projection": "hard clip to [0, 1] after each rollout step"
+  },
+  "rollout_T_to_6T": {
+    "discovered_vs_future_reference": {
+      "mae": 5.025870848326693e-06,
+      "rmse": 3.628547495747023e-05,
+      "r2": 0.999999994732971,
+      "n": 1456000
+    },
+    "true_pde_from_observed_T_vs_future_reference": {
+      "mae": 5.771828077107944e-06,
+      "rmse": 3.7543599749473896e-05,
+      "r2": 0.9999999943613919,
+      "n": 1456000
+    },
+    "terminal_discovered_vs_future_reference": {
+      "mae": 2.6064620550652922e-15,
+      "rmse": 3.883290937003818e-15,
+      "r2": 1.0,
+      "n": 910
+    },
+    "terminal_true_pde_from_observed_T_vs_future_reference": {
+      "mae": 7.77693041188047e-26,
+      "rmse": 1.3558318190484707e-25,
+      "r2": 1.0,
+      "n": 910
+    },
+    "initial_condition_source": "denoised noisy observed field at tau=T",
+    "future_reference_source": "nominal true PDE rollout initialized from clean tau=T",
+    "boundary_condition_source": "known SIB boundary flux from dataset metadata",
+    "time_window": "T <= tau <= 6T",
+    "state_projection": "hard clip to [0, 1] after each rollout step"
+  },
+  "physical_cutoff_T_to_6T": {
+    "bounds": [
+      0.0,
+      1.0
+    ],
+    "representative_reference_cutoff_tau": null,
+    "representative_wised_projected_initial_cutoff_tau": null,
+    "representative_wised_observed_initial_cutoff_tau": null,
+    "all_surface_reference_cutoff_tau": null,
+    "all_surface_wised_projected_initial_cutoff_tau": null,
+    "all_surface_wised_observed_initial_cutoff_tau": null,
+    "note": "Rollout states are hard-clipped to [0, 1] after every numerical step in this clipped protocol; cutoff is retained only as a diagnostic and is expected to be absent unless numerical or equation evaluation produces non-finite values."
+  },
+  "evaluation_note": "Postprocess evaluates the official WiSED-selected equation only; it does not rerank candidates. Reconstruction and rollout are separate downstream evaluations."
+}

@@ -1,0 +1,66 @@
+﻿{
+    "test_battery":  "B11",
+    "validation_battery":  "B10",
+    "discovery_batteries":  [
+                                "B01",
+                                "B02",
+                                "B03",
+                                "B04",
+                                "B05",
+                                "B06",
+                                "B07",
+                                "B08",
+                                "B09"
+                            ],
+    "test_surfaces":  2,
+    "protocol":  "Autonomous coupled impedance-manifold discovery; q=1-SoC orders the field and is excluded from the RHS.",
+    "discovered_equations":  {
+                                 "u":  "u_t = 1.096*u^3 + 1.089*u*u_{x} + 0.3237*u + 1.0*v + 0.09113",
+                                 "v":  "v_t = 0.351*v_{xx} + 0.03708"
+                             },
+    "local_derivative_consistency_test":  {
+                                              "u_q":  {
+                                                          "n_surfaces":  2,
+                                                          "rmse":  0.1053337118921039,
+                                                          "mae":  0.07073939554450599,
+                                                          "r2":  0.8165442056321164
+                                                      },
+                                              "v_q":  {
+                                                          "n_surfaces":  2,
+                                                          "rmse":  0.18229976795586453,
+                                                          "mae":  0.08644060197447381,
+                                                          "r2":  0.299449144578539
+                                                      }
+                                          },
+    "one_step_impedance_prediction_test":  {
+                                               "n_surfaces":  2,
+                                               "R_RMSE_ohm":  0.0003852743354076846,
+                                               "minusX_RMSE_ohm":  0.000676046324073402,
+                                               "X_RMSE_ohm":  0.000676046324073402,
+                                               "Nyquist_RMSE_ohm":  0.000778122706144084,
+                                               "standardized_u_RMSE":  0.005547036822026014,
+                                               "standardized_v_RMSE":  0.009733463946053685,
+                                               "standardized_complex_R2":  0.9992261164013844
+                                           },
+    "rollout_impedance_prediction_test":  {
+                                              "n_surfaces":  2,
+                                              "R_RMSE_ohm":  0.0018293895145608126,
+                                              "minusX_RMSE_ohm":  0.001996907083122454,
+                                              "X_RMSE_ohm":  0.001996907083122454,
+                                              "Nyquist_RMSE_ohm":  0.0027081919973682943,
+                                              "standardized_u_RMSE":  0.026338870945969366,
+                                              "standardized_v_RMSE":  0.028750726695884327,
+                                              "standardized_complex_R2":  0.9904383057766616
+                                          },
+    "soc_inference_test":  {
+                               "test_battery":  "B11",
+                               "n_points":  "38",
+                               "mae_soc_percent":  "4.473684257582614",
+                               "rmse_soc_percent":  "6.282808530754422",
+                               "r2_soc_percent":  "0.9473684217818645",
+                               "within_5_soc_percent":  "0.5",
+                               "within_10_soc_percent":  "0.8947368421052632",
+                               "rollout_nyquist_rmse_ohm":  "0.0027081919973682943",
+                               "rollout_r2":  "0.9904383057766616"
+                           }
+}
