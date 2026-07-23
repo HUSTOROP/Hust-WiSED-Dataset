@@ -1,1 +1,0 @@
-pde_benchmarks/*.npz filter=lfs diff=lfs merge=lfs -text
