@@ -5,6 +5,7 @@ would be misleading; apply the terms below to each component.
 
 | Component | Terms | Required attribution |
 | --- | --- | --- |
+| `pde_benchmarks/` | CC BY 4.0 for WiSED-generated numerical benchmark fields. | Cite the WiSED manuscript/software release. |
 | `sib_diffusion/` | CC BY 4.0 for the WiSED-generated simulation field. | Cite the WiSED manuscript/software release. |
 | `soc_eis/` | CC BY 4.0, retained from the original public dataset. | Cite Mustafa *et al.* Mendeley Data V2, DOI 10.17632/cb887gkmxw.2, and the associated *Data in Brief* article, DOI 10.1016/j.dib.2024.110947. |
 
